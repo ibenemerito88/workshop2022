@@ -1,0 +1,99 @@
+project name: network
+
+blood:
+  rho: 1060.0 # density [kg/m^3]
+  mu: 4.e-3   # dynamic viscosity [Pa⋅s]
+
+solver:
+  Ccfl: 0.9   # Courant number
+  cycles: 100 # maximum number of cycles
+  jump: 100   # timesteps per cycle to be saved
+  convergence tolerance: 5.0 # percentage value
+
+network:
+
+  - label: 1-P
+    sn: 1
+    tn: 2
+    L: 0.5e-2
+    R0: 2.e-3
+    E: 1600.0e3
+    inlet: Q
+    inlet file: inlet.dat
+    inlet number: 1    
+
+  - label: 2-D
+    sn: 2
+    tn: 3
+    L: 1.2e-2
+    R0: 1.17e-3
+    E: 1600.0e3
+    outlet: wk2
+    R1: 1.06e10
+    Cc: 4.6e-12
+
+  - label: 3-D
+    sn: 2
+    tn: 4
+    L: 11.9e-2
+    R0: 1.43e-3
+    E: 1600.0e3
+
+### FRACTAL PART
+
+  - label: 4-F
+    sn: 4
+    tn: 5
+    L: 2.e-2
+    R0: 1.13e-3
+    E: 1600.0e3
+
+  - label: 5-F
+    sn: 4
+    tn: 6
+    L: 2.e-2
+    R0: 1.13e-3
+    E: 1600.0e3
+
+### OUTLETS
+
+  - label: 6-F
+    sn: 5
+    tn: 7
+    L: 2.e-2
+    R0: 0.9e-3
+    E: 2400.0e3
+    outlet: wk2
+    R1: 1.9e10
+    Cc: 1.9e-11
+
+  - label: 7-F
+    sn: 5
+    tn: 8
+    L: 2.e-2
+    R0: 0.9e-3
+    E: 2400.0e3
+    outlet: wk2
+    R1: 1.9e10
+    Cc: 1.9e-11
+
+  - label: 8-F
+    sn: 6
+    tn: 9
+    L: 2.e-2
+    R0: 0.9e-3
+    E: 2400.0e3
+    outlet: wk2
+    R1: 1.9e10
+    Cc: 1.9e-11
+
+  - label: 9-F
+    sn: 6
+    tn: 10
+    L: 2.e-2
+    R0: 0.9e-3
+    E: 2400.0e3
+    outlet: wk2
+    R1: 1.9e10
+    Cc: 1.9e-11
+

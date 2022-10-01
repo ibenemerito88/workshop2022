@@ -1,0 +1,6 @@
+pip install numpy
+pip install matplotlib
+pip install GPy
+pip install sklearn
+pip install SALib
+pip install seaborn
